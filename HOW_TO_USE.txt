@@ -1,0 +1,50 @@
+HOW TO USE: brain-harvest
+=========================
+
+PURPOSE
+  Audit your current working session to detect any architectural decisions,
+  configuration changes, or bugfixes in your files that have not yet been
+  saved to your personal Second Brain knowledge base.
+
+CAPABILITIES
+  - Inspects git diff, git status, and files modified during the session
+  - Extracts key technical choices, root cause fixes, and environment settings
+  - Runs targeted semantic recall queries against your Second Brain
+  - Reports a clear gap analysis: covered vs unrecorded knowledge
+  - Outputs a 1-click ready-to-save bundle with tags and volatility flags
+
+USE CASES
+  - "Did I forget to log anything from today's coding session?"
+  - Checking documentation coverage before committing code
+  - Reviewing changes across multiple files to extract architectural notes
+
+IDEAS
+  - Run `/brain-harvest` right before running `/brain-checkpoint`
+  - Use it when wrapping up a complex multi-file bugfix
+  - Keep your Second Brain up to date without having to manually remember what you touched
+
+PROMPTS YOU CAN PASTE
+  /brain-harvest
+
+  /brain-harvest Live Actions
+
+  /brain-harvest --project audio-tools
+
+EXAMPLE FLOW
+  You:   /brain-harvest
+  Agent: [Scans git diff, compares with Second Brain memories]
+         📊 Brain Harvest Gap Report:
+         🟢 Covered:
+           - WebView2 theme token system (mem_7a2f1c)
+         🟡 Unrecorded Gaps:
+           1. Switched OSC UDP socket to reuseAddress: true to prevent EADDRINUSE on reload
+           2. Live 12 Standard drum rack preset path fix
+         📋 Ready-to-Save:
+           /brain-save Enabled reuseAddress on OSC UDP socket #live-actions #osc !durable
+  You:   save all
+  Agent: [Saves memory immediately and reports confirmed IDs]
+
+DEFAULT GOALS IF YOU DON'T NAME ONE
+  1. Inspect modified workspace files and conversation transcript
+  2. Query Second Brain for matching memories
+  3. Output structured gap report with ready-to-save bundle
